@@ -22,3 +22,6 @@ ro.semc.version.fs=GENERIC
 ro.semc.version.fs_revision=47.2.A.11.228
 ro.semc.product.name=Xperia XZ1 Compact
 ro.semc.product.device=G84
+
+# 告訴 SurfaceFlinger 不要依賴 ConfigStore (如果支援的話)
+android.hardware.configstore.1.0-service=0
