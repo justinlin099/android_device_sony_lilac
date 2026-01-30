@@ -22,6 +22,10 @@ PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_SHIPPING_API_LEVEL := 26
 
+# 復活 ConfigStore 服務
+PRODUCT_PACKAGES += \
+    android.hardware.configstore@1.1-service
+
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
