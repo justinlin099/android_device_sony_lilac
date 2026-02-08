@@ -36,7 +36,3 @@ DEVICE_PACKAGE_OVERLAYS += \
 TARGET_USE_CUSTOM_POWERHINT := true
 
 include $(DEVICE_PATH)/device/*.mk
-
-# Disable APEX compression (Fixes dm-verity corruption on FBE)
-PRODUCT_COMPRESSED_APEX := false
-OVERRIDE_PRODUCT_COMPRESSED_APEX := false
