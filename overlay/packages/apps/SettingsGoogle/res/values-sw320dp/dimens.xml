@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="biometric_auth_pattern_view_size">250dp</dimen>
+    <dimen name="biometric_auth_pattern_view_max_size">250dp</dimen>
+
+    <dimen name="sud_glif_icon_max_height">0dp</dimen>
+    <dimen name="sud_glif_icon_max_width">0dp</dimen>
+    <dimen name="sud_header_icon_size">0dp</dimen>
+
+    <dimen name="biometrics_glif_header_height">0dp</dimen>
+    <dimen name="sud_glif_header_height">0dp</dimen>
+    
+    <dimen name="sud_glif_margin_top">0dp</dimen>
+    <dimen name="sud_content_frame_padding_top">0dp</dimen>
+    <dimen name="sud_header_container_margin_bottom">0dp</dimen>
+
+    <dimen name="sfps_enroll_find_sensor_lottie_margin">0dp</dimen>
+
+    <dimen name="sud_header_title_size">20sp</dimen>
+    <dimen name="sud_glif_header_title_size">20sp</dimen>
+
+</resources>
