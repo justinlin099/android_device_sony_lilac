@@ -33,7 +33,8 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
-    device/sony/lilac/overlay/packages/apps/Settings
+    device/sony/lilac/overlay/packages/apps/Settings\
+    device/sony/yoshino-common/overlay/frameworks/base/packages/SystemUI
 
 ### POWER
 TARGET_USE_CUSTOM_POWERHINT := true
