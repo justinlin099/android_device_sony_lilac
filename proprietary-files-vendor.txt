@@ -234,10 +234,6 @@ vendor/lib64/mediadrm/libwvdrmengine.so
 vendor/lib64/libwvhidl.so
 vendor/lib64/libwvtee.so
 
-# DRM Crypto
-vendor/lib/liboemcrypto.so
-vendor/lib64/liboemcrypto.so
-
 # DRM_FIRMWARE
 vendor/firmware/tzwidevine.b00
 vendor/firmware/tzwidevine.b01
