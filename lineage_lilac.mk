@@ -30,3 +30,16 @@ PRODUCT_MANUFACTURER := Sony
 #    PRIVATE_BUILD_DESC="G8441-user 9 47.2.A.11.228 3311891731 release-keys"
 
 BUILD_FINGERPRINT := Sony/G8441/G8441:9/47.2.A.11.228/3311891731:user/release-keys
+
+# Change build version according to KSU or non-KSU build
+ifeq ($(WITH_KSU),true)
+	LINEAGE_VERSION_APPEND := -KSU
+
+	PRODUCT_PROPERTY_OVERRIDES += \
+		ro.ota.variant=ksu \
+		ro.build.ksu=1
+else
+	PRODUCT_BUILD_PROP_OVERRIDES += \
+		ro.ota.variant=std \
+		ro.build.ksu=0
+endif
