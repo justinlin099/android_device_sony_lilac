@@ -36,10 +36,10 @@ ifeq ($(WITH_KSU),true)
 	LINEAGE_VERSION_APPEND := -KSU
 
 	PRODUCT_PROPERTY_OVERRIDES += \
-		ro.ota.variant=ksu \
-		ro.build.ksu=1
+		ro.vendor.ota.variant=ksu \
+		ro.vendor.build.ksu=1
 else
 	PRODUCT_BUILD_PROP_OVERRIDES += \
-		ro.ota.variant=std \
-		ro.build.ksu=0
+		ro.vendor.ota.variant=std \
+		ro.vendor.build.ksu=0
 endif
