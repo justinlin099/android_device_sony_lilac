@@ -34,12 +34,4 @@ BUILD_FINGERPRINT := Sony/G8441/G8441:9/47.2.A.11.228/3311891731:user/release-ke
 # Change build version according to KSU or non-KSU build
 ifeq ($(WITH_KSU),true)
 	LINEAGE_VERSION_APPEND := -KSU
-
-	PRODUCT_PROPERTY_OVERRIDES += \
-		ro.vendor.ota.variant=ksu \
-		ro.vendor.build.ksu=1
-else
-	PRODUCT_BUILD_PROP_OVERRIDES += \
-		ro.vendor.ota.variant=std \
-		ro.vendor.build.ksu=0
 endif
