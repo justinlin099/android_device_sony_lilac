@@ -46,8 +46,5 @@ TARGET_VENDOR_PROP += $(DEVICE_PATH)/vendor.prop
 # KernelSU Next Implementation
 ifeq ($(WITH_KSU),true)
 	TARGET_KERNEL_ADDITIONAL_FLAGS := \
-		CONFIG_KPROBES=y \
-		CONFIG_KPROBE_EVENTS=y \
-		CONFIG_KSU_KPROBE_HOOKS=y \
 		CONFIG_KSU=y
 endif
