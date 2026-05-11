@@ -22,10 +22,18 @@ DEVICE_PATH := device/sony/lilac
 PRODUCT_PLATFORM := yoshino
 
 ### BOOTLOADER
-TARGET_BOOTLOADER_BOARD_NAME := G8441
+ifeq ($(TARGET_PRODUCT),lineage_lilac_dcm)
+    TARGET_BOOTLOADER_BOARD_NAME := SO-02K
+else
+    TARGET_BOOTLOADER_BOARD_NAME := G8441
+endif
 
 ### KERNEL
-TARGET_KERNEL_CONFIG := lineage-msm8998-yoshino-lilac_defconfig
+ifeq ($(TARGET_PRODUCT),lineage_lilac_dcm)
+    TARGET_KERNEL_CONFIG := lineage-msm8998-yoshino-lilac_dcm_defconfig
+else
+    TARGET_KERNEL_CONFIG := lineage-msm8998-yoshino-lilac_defconfig
+endif
 
 BOARD_KERNEL_CMDLINE += androidboot.hardware=lilac
 

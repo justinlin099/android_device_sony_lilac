@@ -13,5 +13,9 @@
 # limitations under the License.
 
 # NFC
+ifeq ($(TARGET_PRODUCT),lineage_lilac_dcm)
+# DCM uses prebuilt Sony FeliCa NFC HAL
+else
 PRODUCT_PACKAGES += \
     android.hardware.nfc@1.1-service
+endif
