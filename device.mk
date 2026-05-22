@@ -29,6 +29,16 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.1-service \
     android.hardware.graphics.mapper@2.0-impl-2.1 \
 
+# Sony Prebuilts (Framework and Permissions)
+PRODUCT_PACKAGES += \
+    com.sony.device \
+    com.sonymobile.album \
+    com.sonymobile.album.internal \
+    com.sony.device.xml \
+    com.sonymobile.album.xml \
+    com.sonymobile.album.internal.xml \
+    privapp-permissions-sony.xml
+
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
