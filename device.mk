@@ -59,11 +59,6 @@ PRODUCT_COPY_FILES += \
     device/sony/lilac/rootdir/etc/init.lilac-cpuset.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/init.lilac-cpuset.rc \
     device/sony/lilac/rootdir/bin/init.lilac-cpuset.sh:$(TARGET_COPY_OUT_VENDOR)/bin/init.lilac-cpuset.sh
 
-PRODUCT_ADB_KEYS := device/sony/lilac/adb_keys
-
-PRODUCT_PRODUCT_PROPERTIES += \
-    lineage.updater.uri=https://raw.githubusercontent.com/sunplex07/lineageos-lilac-releases/main/{device}.json
-
 PRODUCT_PACKAGES += \
     DeskClockWidgetColorFix
 
