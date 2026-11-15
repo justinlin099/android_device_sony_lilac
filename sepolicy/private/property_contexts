@@ -1,0 +1,2 @@
+ro.lilac.legacy_bpf_compat u:object_r:lilac_bpf_compat_prop:s0 exact bool
+ro.bpf.kver_override u:object_r:lilac_bpf_kver_prop:s0 exact string

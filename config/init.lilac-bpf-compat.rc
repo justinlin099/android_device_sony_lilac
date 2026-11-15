@@ -1,0 +1,3 @@
+# Keep serial number access in init. Consumers only need the compatibility flag.
+on early-init && property:ro.boot.serialno=BH906Q2D9E
+    setprop ro.lilac.legacy_bpf_compat true

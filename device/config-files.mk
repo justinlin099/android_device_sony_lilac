@@ -87,3 +87,8 @@ PRODUCT_COPY_FILES += \
 ### POWER
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/config/power/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
+ifeq ($(TARGET_PRODUCT),lineage_lilac)
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/config/init.lilac-bpf-compat.rc:$(TARGET_COPY_OUT_PRODUCT)/etc/init/init.lilac-bpf-compat.rc
+endif

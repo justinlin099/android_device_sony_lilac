@@ -1,0 +1,11 @@
+system_internal_prop(lilac_bpf_compat_prop)
+
+get_prop(bpfloader, lilac_bpf_compat_prop)
+get_prop(netd, lilac_bpf_compat_prop)
+get_prop(system_server, lilac_bpf_compat_prop)
+
+neverallow { domain -init } lilac_bpf_compat_prop:property_service set;
+
+# The vendor build properties provide the kernel ABI override for this target.
+system_vendor_config_prop(lilac_bpf_kver_prop)
+get_prop(bpfdomain, lilac_bpf_kver_prop)
