@@ -1,2 +1,8 @@
 soong_namespace {
 }
+
+vintf_compatibility_matrix {
+    name: "lilac_framework_compatibility_matrix.5.xml",
+    stem: "compatibility_matrix.5.xml",
+    srcs: ["compatibility_matrix.5.xml"],
+}

@@ -22,6 +22,8 @@ PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_SHIPPING_API_LEVEL := 26
 
+PRODUCT_PACKAGES += lilac_framework_compatibility_matrix.5.xml
+
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
     android.hardware.graphics.composer@2.1-service \
