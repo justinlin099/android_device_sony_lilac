@@ -1,0 +1,2 @@
+# Keep the ION buffer access of the Yoshino vendor media codec.
+allow mediacodec ion_device:chr_file rw_file_perms;
