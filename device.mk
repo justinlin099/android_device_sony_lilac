@@ -22,6 +22,9 @@ PRODUCT_AAPT_PREBUILT_DPI := xhdpi hdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_SHIPPING_API_LEVEL := 26
 
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/rootdir/etc/fstab.lilac.first_stage:$(TARGET_COPY_OUT_RAMDISK)/fstab.lilac
+
 PRODUCT_PACKAGES += lilac_framework_compatibility_matrix.5.xml
 
 PRODUCT_PACKAGES += \
