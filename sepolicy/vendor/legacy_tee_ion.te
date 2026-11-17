@@ -1,0 +1,2 @@
+# Match the legacy ION access used by the Qualcomm TEE stack on Android 16.
+allow { tee hal_gatekeeper_qti hal_keymaster_qti } ion_device:chr_file r_file_perms;
