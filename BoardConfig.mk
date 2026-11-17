@@ -39,7 +39,10 @@ else
 endif
 
 ifeq ($(TARGET_PRODUCT),lineage_lilac)
-    BOARD_KERNEL_CMDLINE := $(filter-out androidboot.selinux=permissive,$(BOARD_KERNEL_CMDLINE))
+    # Allow a temporary userdebug build to collect complete SELinux denials.
+    ifneq ($(WITH_LILAC_PERMISSIVE_BRINGUP):$(TARGET_BUILD_VARIANT),true:userdebug)
+        BOARD_KERNEL_CMDLINE := $(filter-out androidboot.selinux=permissive,$(BOARD_KERNEL_CMDLINE))
+    endif
     PRODUCT_PRIVATE_SEPOLICY_DIRS += device/sony/lilac/sepolicy/private
     BOARD_VENDOR_SEPOLICY_DIRS += device/sony/lilac/sepolicy/vendor
 endif
