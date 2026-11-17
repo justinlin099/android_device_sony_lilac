@@ -24,6 +24,9 @@ PRODUCT_PLATFORM := yoshino
 # lilac uses the Yoshino power service with its legacy display HAL.
 $(call soong_config_set_bool,qtipower,disable_default_service,true)
 
+# The Yoshino vendor stack exposes a HIDL gralloc 2.1 mapper.
+$(call soong_config_set_bool,libui,legacy_gralloc,true)
+
 ### BOOTLOADER
 ifeq ($(TARGET_PRODUCT),lineage_lilac_dcm)
     TARGET_BOOTLOADER_BOARD_NAME := SO-02K

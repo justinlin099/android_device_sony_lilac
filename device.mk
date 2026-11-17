@@ -14,7 +14,8 @@ DEVICE_PATH := device/sony/lilac
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
-    $(DEVICE_PATH)
+    $(DEVICE_PATH) \
+    hardware/google/pixel/power-libperfmgr
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal
@@ -26,6 +27,11 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/rootdir/etc/fstab.lilac.first_stage:$(TARGET_COPY_OUT_RAMDISK)/fstab.lilac
 
 PRODUCT_PACKAGES += lilac_framework_compatibility_matrix.5.xml
+
+# Shared libraries required by the existing Sony HAL binaries.
+PRODUCT_PACKAGES += \
+    android.hardware.light@2.0.vendor \
+    libperfmgr.vendor
 
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator@2.0-service \
