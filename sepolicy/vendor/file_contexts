@@ -1,0 +1,2 @@
+# The legacy Qualcomm TEE stack still uses the ION allocator.
+/dev/ion    u:object_r:ion_device:s0
