@@ -1,0 +1,2 @@
+# Allow mount of the transient aconfig store during early boot.
+allow init aconfig_storage_metadata_file:dir mounton;

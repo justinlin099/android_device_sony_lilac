@@ -46,6 +46,9 @@ ifeq ($(TARGET_PRODUCT),lineage_lilac)
     ifneq ($(WITH_LILAC_PERMISSIVE_BRINGUP):$(TARGET_BUILD_VARIANT),true:userdebug)
         BOARD_KERNEL_CMDLINE := $(filter-out androidboot.selinux=permissive,$(BOARD_KERNEL_CMDLINE))
     endif
+    # aconfig initializes before userdata is available on legacy lilac.
+    BOARD_ROOT_EXTRA_FOLDERS += metadata/aconfig
+    BOARD_KERNEL_CMDLINE += androidboot.lilac_aconfig_tmpfs=1
     PRODUCT_PRIVATE_SEPOLICY_DIRS += device/sony/lilac/sepolicy/private
     BOARD_VENDOR_SEPOLICY_DIRS += device/sony/lilac/sepolicy/vendor
 endif
