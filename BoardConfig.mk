@@ -77,3 +77,8 @@ ifeq ($(WITH_KSU),true)
 	TARGET_KERNEL_ADDITIONAL_FLAGS := \
 		CONFIG_KSU=y
 endif
+
+# Allow a host OpenSSL signer for builds whose prebuilt BoringSSL lacks CMS.
+ifneq ($(YOSHINO_KERNEL_SIGN_FILE),)
+TARGET_KERNEL_ADDITIONAL_FLAGS += KBUILD_SIGN_MODULE=$(YOSHINO_KERNEL_SIGN_FILE)
+endif

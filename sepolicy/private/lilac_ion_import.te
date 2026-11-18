@@ -1,0 +1,5 @@
+type lilac_ion_import_device, dev_type;
+
+# The kernel endpoint supports import, free, and cache maintenance for imported buffers.
+allow { untrusted_app_all cameraserver } lilac_ion_import_device:chr_file { getattr open read ioctl };
+allowxperm { untrusted_app_all cameraserver } lilac_ion_import_device:chr_file ioctl { 0x4901 0x4905 0x4908 };

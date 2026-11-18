@@ -11,3 +11,7 @@ allow {
     system_server
 } ion_device:chr_file r_file_perms;
 allow bootanim ion_device:chr_file rw_file_perms;
+
+# Vulkan capability detection loads the legacy Adreno driver in gpuservice.
+allow gpuservice ion_device:chr_file { getattr open read ioctl };
+allowxperm gpuservice ion_device:chr_file ioctl { 0x4900-0x4902 0x4904 0x4905 0x4907 };

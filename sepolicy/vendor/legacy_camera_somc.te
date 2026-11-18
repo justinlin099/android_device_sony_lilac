@@ -1,0 +1,6 @@
+# The Sony camera HAL needs ION buffers and the framework sensor service.
+allow hal_camera_somc ion_device:chr_file { getattr open read ioctl };
+allowxperm hal_camera_somc ion_device:chr_file ioctl { 0x4900-0x4902 0x4904-0x4907 };
+allow hal_camera_somc fwk_sensor_service:service_manager find;
+allow hal_camera_somc fwk_sensor_hwservice:hwservice_manager find;
+hal_client_domain(hal_camera_somc, hal_graphics_allocator)
