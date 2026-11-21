@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     SPDX-FileCopyrightText: The LineageOS Project
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- PCM streaming prefill in milliseconds. Zero keeps the platform default. -->
+    <integer name="config_pcm_start_threshold_ms">500</integer>
+</resources>
