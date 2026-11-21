@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <item name="config_brightness_slider_haptic_scale" type="dimen" format="float">0.5</item>
+    <integer name="config_brightness_slider_legacy_drag_pulse_ms">30</integer>
+    <integer name="config_volume_slider_legacy_drag_pulse_ms">26</integer>
+    <integer name="config_volume_slider_legacy_medium_drag_pulse_ms">22</integer>
+    <bool name="config_volume_slider_haptics_on_programmatic_changes">false</bool>
+    <integer name="config_volume_key_haptic_pulse_ms">36</integer>
+    <integer name="config_volume_key_haptic_interval_ms">70</integer>
+    <item name="config_volume_slider_haptic_scale" type="dimen" format="float">0.5</item>
+
     <integer name="quick_settings_num_columns">2</integer>
 
     <integer name="quick_settings_max_rows">3</integer>
