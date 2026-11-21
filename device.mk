@@ -55,7 +55,9 @@ PRODUCT_PACKAGES += LilacSettingsOverlay
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     device/sony/lilac/overlay/packages/apps/Settings\
     device/sony/yoshino-common/overlay/frameworks/base/packages/SystemUI\
-    device/sony/lilac/overlay/packages/apps/SettingsGoogle
+    device/sony/lilac/overlay/packages/apps/SettingsGoogle \
+    device/sony/lilac/overlay/packages/apps/Twelve \
+    device/sony/lilac/overlay/packages/apps/LineageParts
 
 ### POWER
 TARGET_USE_CUSTOM_POWERHINT := true
