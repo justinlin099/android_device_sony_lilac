@@ -50,6 +50,8 @@ PRODUCT_PACKAGES += \
 DEVICE_PACKAGE_OVERLAYS += \
     $(DEVICE_PATH)/overlay
 
+PRODUCT_PACKAGES += LilacSettingsOverlay
+
 PRODUCT_ENFORCE_RRO_EXCLUDED_OVERLAYS += \
     device/sony/lilac/overlay/packages/apps/Settings\
     device/sony/yoshino-common/overlay/frameworks/base/packages/SystemUI\
