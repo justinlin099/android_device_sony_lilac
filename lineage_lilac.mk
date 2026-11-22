@@ -23,6 +23,8 @@ PRODUCT_NAME := lineage_lilac
 PRODUCT_DEVICE := lilac
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := G8441
+# Keep all cores eligible for top-app scheduling on G8441.
+PRODUCT_VENDOR_PROPERTIES += ro.vendor.yoshino.top_app_cpus=0-7
 PRODUCT_MANUFACTURER := Sony
 
 # Expose WPA3-SAE hotspot support on the G8441 product.

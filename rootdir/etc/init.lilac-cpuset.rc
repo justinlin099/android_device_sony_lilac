@@ -49,7 +49,7 @@ on early-init
     chmod 0664 /dev/cpuset/top-app/tasks
     chmod 0664 /dev/cpuset/camera-daemon/tasks
 
-service lilac_cpuset /vendor/bin/init.lilac-cpuset.sh
+service lilac_cpuset /vendor/bin/init.lilac-cpuset.sh "${ro.vendor.yoshino.top_app_cpus:-0-3,6-7}"
     class late_start
     user root
     group root system
