@@ -11,7 +11,6 @@ license {
 
 cc_library_shared {
     name: "libbundlewrapper_lilac",
-    stem: "libbundlewrapper",
     overrides: ["libbundlewrapper"],
     vendor: true,
     compile_multilib: "both",

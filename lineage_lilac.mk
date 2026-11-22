@@ -2,6 +2,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 
+# Pick the lilac effect bundle before inheriting the common vendor configuration.
+PRODUCT_COPY_FILES += device/sony/lilac/audiofx/audio_effects.xml:$(TARGET_COPY_OUT_VENDOR)/etc/audio_effects.xml
+
 # Inherit device configuration
 $(call inherit-product, device/sony/lilac/device.mk)
 
