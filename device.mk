@@ -1,3 +1,6 @@
+# Enable the lilac-specific Sony fingerprint PM wakeup hookup.
+PRODUCT_PACKAGES += liblilac_fpc_wakeup
+
 ### PLATFORM
 $(call inherit-product, device/sony/yoshino-common/platform.mk)
 ### PROPRIETARY VENDOR FILES

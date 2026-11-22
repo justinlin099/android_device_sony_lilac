@@ -1,0 +1,4 @@
+# The original Sony service opens this node as UID system.
+on post-fs-data
+    chown system root /sys/devices/soc/soc:fpc1145/pm_wakeup
+    chmod 0600 /sys/devices/soc/soc:fpc1145/pm_wakeup

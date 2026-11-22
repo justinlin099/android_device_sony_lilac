@@ -66,6 +66,16 @@ extract "${MY_DIR}/proprietary-files-vendor.txt" "${SRC}" "${KANG}" --section "$
 
 DEVICE_ROOT="${ANDROID_ROOT}"/vendor/"${VENDOR}"/"${DEVICE}"/proprietary
 
+# Link the lilac wakeup shim directly; secure init does not use LD_PRELOAD.
+FPC_HAL="$DEVICE_ROOT/vendor/bin/hw/fpc_fingerprint@2.1_HIDL-service"
+FPC_PATCHELF="$ANDROID_ROOT/prebuilts/extract-tools/linux-x86/bin/patchelf-0_18"
+if [ -f "$FPC_HAL" ]; then
+    if ! "$FPC_PATCHELF" --print-needed "$FPC_HAL" | grep -Fxq liblilac_fpc_wakeup.so; then
+        "$FPC_PATCHELF" --page-size 65536 --add-needed liblilac_fpc_wakeup.so "$FPC_HAL"
+    fi
+    python3 "$MY_DIR/fingerprint/patch-auth-worker.py" "$FPC_HAL"
+fi
+
 # Fix referenced set_sched_policy for stock audio hal
 "${PATCHELF}" --replace-needed "libcutils.so" "libprocessgroup.so" "${DEVICE_ROOT}"/vendor/lib/hw/audio.primary.msm8998.so
 

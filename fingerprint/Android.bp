@@ -1,0 +1,8 @@
+cc_library_shared {
+    name: "liblilac_fpc_wakeup",
+    vendor: true,
+    compile_multilib: "64",
+    stl: "none",
+    srcs: ["wakeup.c"],
+    init_rc: ["init.lilac-fpc-wakeup.rc"],
+}

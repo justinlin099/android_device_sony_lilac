@@ -1,0 +1,2 @@
+# The lilac FPC HAL only writes the sensor's PM wake switch.
+allow hal_fingerprint_fpc sysfs_pm_wakeup:file { open write };
