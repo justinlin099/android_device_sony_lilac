@@ -1,0 +1,2 @@
+d4ed2f0e14f9e914d0b1275d2e0363192fe30aca9059c84edb5fad15995f9ec4 android.hardware.light@2.0::ILight
+d9584bfcaedd6e62cf337881748246b23e36cbc2bc3aa84c01b6a1e622061400 android.hardware.light@2.0::types

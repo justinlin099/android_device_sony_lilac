@@ -1,0 +1,12 @@
+hidl_interface {
+    name: "android.hardware.light@2.0",
+    root: "android.hardware.light",
+    srcs: [
+        "types.hal",
+        "ILight.hal",
+    ],
+    interfaces: [
+        "android.hidl.base@1.0",
+    ],
+    gen_java: true,
+}
