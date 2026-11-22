@@ -16,6 +16,11 @@ cc_library_shared {
     compile_multilib: "both",
     relative_install_path: "soundfx",
 
+    // Preserve the CFI instrumentation of the framework's vendor bundle.
+    sanitize: {
+        cfi: true,
+    },
+
     arch: {
         arm: {
             instruction_set: "arm",
