@@ -1,0 +1,7 @@
+cc_library_shared {
+    name: "liblilac_ion_import",
+    vendor: true,
+    compile_multilib: "both",
+    stl: "none",
+    srcs: ["open.c"],
+}

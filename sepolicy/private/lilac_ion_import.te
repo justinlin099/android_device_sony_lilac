@@ -1,0 +1,23 @@
+type lilac_ion_import_device, dev_type;
+
+# The kernel endpoint validates existing dma-buf fds and accepts only import/free.
+allow {
+    cameraserver
+    untrusted_app_all
+    permissioncontroller_app
+    mediaprovider
+    platform_app_36
+    radio
+    updater_app
+    shell
+} lilac_ion_import_device:chr_file { getattr open read ioctl };
+allowxperm {
+    cameraserver
+    untrusted_app_all
+    permissioncontroller_app
+    mediaprovider
+    platform_app_36
+    radio
+    updater_app
+    shell
+} lilac_ion_import_device:chr_file ioctl { 0x4901 0x4905 };

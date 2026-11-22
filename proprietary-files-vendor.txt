@@ -474,3 +474,7 @@ vendor/etc/firmware/tztpm.mdt
 
 # WIFI
 vendor/etc/wifi/bdwlan.bin
+
+# Adreno ION import compatibility
+vendor/lib/libgsl.so
+vendor/lib64/libgsl.so

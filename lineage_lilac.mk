@@ -26,6 +26,16 @@ PRODUCT_NAME := lineage_lilac
 PRODUCT_DEVICE := lilac
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := G8441
+
+# Optionally trust the local test host in the recovery ramdisk only.
+ifeq ($(TARGET_PRODUCT):$(TARGET_BUILD_VARIANT):$(WITH_LILAC_RECOVERY_HOST_ADB),lineage_lilac:userdebug:true)
+    lilac_recovery_adb_key := vendor/lilac-local/recovery-adb.pub
+    ifeq ($(wildcard $(lilac_recovery_adb_key)),)
+        $(error Missing local lilac Recovery ADB public key)
+    endif
+    PRODUCT_COPY_FILES += $(lilac_recovery_adb_key):$(TARGET_COPY_OUT_RECOVERY)/root/system/product/etc/security/adb_keys
+endif
+
 # Keep all cores eligible for top-app scheduling on G8441.
 PRODUCT_VENDOR_PROPERTIES += ro.vendor.yoshino.top_app_cpus=0-7
 PRODUCT_MANUFACTURER := Sony
@@ -38,6 +48,12 @@ PRODUCT_PACKAGES += libbundlewrapper_lilac
 
 # Use the AIDL health service for battery state of health.
 PRODUCT_PACKAGES += android.hardware.health-service.lilac
+
+# Codec2 uses the standard system heap for linear buffers on the 4.4 kernel.
+PRODUCT_SYSTEM_PROPERTIES += debug.c2.use_dmabufheaps=1
+
+# Keep CPU-readable Main10 HEVC output in the requested linear format.
+PRODUCT_VENDOR_PROPERTIES += vendor.vidc.dec.dither_linear=true
 
 #PRODUCT_BUILD_PROP_OVERRIDES += \
 #    PRODUCT_NAME=lilac \

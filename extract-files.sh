@@ -66,6 +66,44 @@ extract "${MY_DIR}/proprietary-files-vendor.txt" "${SRC}" "${KANG}" --section "$
 
 DEVICE_ROOT="${ANDROID_ROOT}"/vendor/"${VENDOR}"/"${DEVICE}"/proprietary
 
+# Secure init ignores the provider's former LD_PRELOAD environment.
+CAMERA_PROVIDER="${DEVICE_ROOT}/vendor/bin/hw/vendor.somc.hardware.camera.provider@1.0-service"
+if [ -f "${CAMERA_PROVIDER}" ]; then
+    for library in libsensorfix.so libui.so; do
+        if ! "${PATCHELF}" --print-needed "${CAMERA_PROVIDER}" | grep -Fxq "${library}"; then
+            "${PATCHELF}" --add-needed "${library}" "${CAMERA_PROVIDER}"
+        fi
+    done
+    # Resolve the current C++ runtime before the older camera graphics libraries.
+    if "${PATCHELF}" --print-needed "${CAMERA_PROVIDER}" | grep -Fxq libc++.so; then
+        "${PATCHELF}" --remove-needed libc++.so "${CAMERA_PROVIDER}"
+    fi
+    if ! "${PATCHELF}" --print-needed "${CAMERA_PROVIDER}" | grep -Fxq /vendor/lib/libc++.so; then
+        "${PATCHELF}" --add-needed /vendor/lib/libc++.so "${CAMERA_PROVIDER}"
+    fi
+    "${PATCHELF}" --set-rpath /vendor/lib/cama15 "${CAMERA_PROVIDER}"
+    for library in libui.so libutils.so; do
+        path="${DEVICE_ROOT}/vendor/lib/cama15/${library}"
+        if [ -f "${path}" ]; then
+            "${PATCHELF}" --set-rpath /vendor/lib/cama15 "${path}"
+        fi
+    done
+fi
+
+# Route only the Adreno blob's open imports through the lilac compatibility library.
+GSL_PATCHELF="${ANDROID_ROOT}/prebuilts/extract-tools/linux-x86/bin/patchelf-0_18"
+for abi in lib lib64; do
+    gsl="${DEVICE_ROOT}/vendor/${abi}/libgsl.so"
+    if [ -f "${gsl}" ] &&
+            ! "${GSL_PATCHELF}" --print-needed "${gsl}" | grep -Fxq liblilac_ion_import.so; then
+        if readelf -SW "${gsl}" 2>/dev/null | grep -qE ' \.gnu\.version +VERSYM'; then
+            "${GSL_PATCHELF}" --clear-symbol-version open --clear-symbol-version __open_2 "${gsl}"
+        fi
+        "${GSL_PATCHELF}" --rename-dynamic-symbols "${MY_DIR}/ion_import/gsl-open-symbols.txt" "${gsl}"
+        "${GSL_PATCHELF}" --add-needed liblilac_ion_import.so "${gsl}"
+    fi
+done
+
 # Link the lilac wakeup shim directly; secure init does not use LD_PRELOAD.
 FPC_HAL="$DEVICE_ROOT/vendor/bin/hw/fpc_fingerprint@2.1_HIDL-service"
 FPC_PATCHELF="$ANDROID_ROOT/prebuilts/extract-tools/linux-x86/bin/patchelf-0_18"

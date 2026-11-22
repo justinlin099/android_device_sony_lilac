@@ -1,3 +1,10 @@
+# Use the lilac GSL copies before the common product adds its copies.
+PRODUCT_COPY_FILES += \
+    vendor/sony/lilac/proprietary/vendor/lib/libgsl.so:$(TARGET_COPY_OUT_VENDOR)/lib/libgsl.so \
+    vendor/sony/lilac/proprietary/vendor/lib64/libgsl.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libgsl.so
+
+PRODUCT_PACKAGES += liblilac_ion_import
+
 # Enable the lilac-specific Sony fingerprint PM wakeup hookup.
 PRODUCT_PACKAGES += liblilac_fpc_wakeup
 

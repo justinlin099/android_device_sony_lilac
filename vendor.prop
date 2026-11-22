@@ -4,6 +4,9 @@ bluetooth.device.default_name=Xperia XZ1 Compact
 # Disable HDR
 vendor.display.hwc_disable_hdr=1
 
+# Use linear graphics buffers with the legacy display stack
+vendor.gralloc.disable_ubwc=1
+
 # Validate each frame on the legacy HWC2 stack to avoid scanout corruption.
 vendor.display.disable_skip_validate=1
 

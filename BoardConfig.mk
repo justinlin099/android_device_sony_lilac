@@ -77,3 +77,6 @@ ifeq ($(WITH_KSU),true)
 	TARGET_KERNEL_ADDITIONAL_FLAGS := \
 		CONFIG_KSU=y
 endif
+
+# The 4.4 module signing tool needs OpenSSL CMS for SHA-512 signatures.
+TARGET_KERNEL_ADDITIONAL_FLAGS += KBUILD_SIGN_FILE_HOSTCC=/usr/bin/cc
