@@ -1,0 +1,66 @@
+package {
+    default_applicable_licenses: ["lilac_audiofx_license"],
+}
+
+license {
+    name: "lilac_audiofx_license",
+    visibility: [":__subpackages__"],
+    license_kinds: ["SPDX-license-identifier-Apache-2.0"],
+    license_text: ["NOTICE"],
+}
+
+cc_library_shared {
+    name: "libbundlewrapper_lilac",
+    stem: "libbundlewrapper",
+    overrides: ["libbundlewrapper"],
+    vendor: true,
+    compile_multilib: "both",
+    relative_install_path: "soundfx",
+
+    arch: {
+        arm: {
+            instruction_set: "arm",
+        },
+    },
+    srcs: [
+        "LVEQNB_Control.cpp",
+        "LVEQNB_Process.cpp",
+        "upstream/EffectBundle.cpp",
+        "upstream/LVEQNB_CalcCoef.cpp",
+        "upstream/LVEQNB_Init.cpp",
+        "upstream/LVM_API_Specials.cpp",
+        "upstream/LVM_Buffers.cpp",
+        "upstream/LVM_Control.cpp",
+        "upstream/LVM_Init.cpp",
+        "upstream/LVM_Process.cpp",
+    ],
+    // The bundle embeds the private EQ type. Compile each source that uses the
+    // type with the same definition and reuse the stock archive for the rest.
+    static_libs: ["libmusicbundle"],
+    include_dirs: [
+        "frameworks/av/media/libeffects/lvm",
+        "frameworks/av/media/libeffects/lvm/lib/Bass/lib",
+        "frameworks/av/media/libeffects/lvm/lib/Bass/src",
+        "frameworks/av/media/libeffects/lvm/lib/Common/src",
+        "frameworks/av/media/libeffects/lvm/lib/Eq/lib",
+        "frameworks/av/media/libeffects/lvm/lib/Eq/src",
+        "frameworks/av/media/libeffects/lvm/lib/SpectrumAnalyzer/lib",
+        "frameworks/av/media/libeffects/lvm/lib/SpectrumAnalyzer/src",
+        "frameworks/av/media/libeffects/lvm/lib/StereoWidening/lib",
+        "frameworks/av/media/libeffects/lvm/lib/StereoWidening/src",
+    ],
+    cppflags: [
+        "-fvisibility=hidden",
+        "-Wall",
+        "-Werror",
+    ],
+    header_libs: [
+        "libaudioeffects",
+        "libhardware_headers",
+    ],
+    shared_libs: [
+        "libaudioutils",
+        "libcutils",
+        "liblog",
+    ],
+}

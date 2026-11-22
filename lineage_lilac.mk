@@ -30,6 +30,9 @@ PRODUCT_MANUFACTURER := Sony
 # Expose WPA3-SAE hotspot support on the G8441 product.
 PRODUCT_PACKAGES += LilacWifiSaeTest
 
+# Use the device EQ transition for the legacy audio effects bundle.
+PRODUCT_PACKAGES += libbundlewrapper_lilac
+
 # Use the AIDL health service for battery state of health.
 PRODUCT_PACKAGES += android.hardware.health-service.lilac
 
