@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- PackageManager resolves this value when it parses the Settings manifest. -->
+    <bool name="config_storage_manager_settings_enabled">true</bool>
+</resources>
