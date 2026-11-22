@@ -28,6 +28,9 @@ PRODUCT_MANUFACTURER := Sony
 # Expose WPA3-SAE hotspot support on the G8441 product.
 PRODUCT_PACKAGES += LilacWifiSaeTest
 
+# Use the AIDL health service for battery state of health.
+PRODUCT_PACKAGES += android.hardware.health-service.lilac
+
 #PRODUCT_BUILD_PROP_OVERRIDES += \
 #    PRODUCT_NAME=lilac \
 #    PRIVATE_BUILD_DESC="G8441-user 9 47.2.A.11.228 3311891731 release-keys"

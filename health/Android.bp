@@ -1,0 +1,11 @@
+cc_binary {
+    name: "android.hardware.health-service.lilac",
+    vendor: true,
+    relative_install_path: "hw",
+    defaults: ["libhealth_aidl_impl_user"],
+    static_libs: ["libhealth_aidl_impl"],
+    srcs: ["service.cpp"],
+    init_rc: ["android.hardware.health-service.lilac.rc"],
+    vintf_fragments: ["android.hardware.health-service.lilac.xml"],
+    overrides: ["android.hardware.health@2.1-service", "charger", "healthd"],
+}

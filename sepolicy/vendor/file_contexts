@@ -1,2 +1,4 @@
 # The legacy Qualcomm TEE stack still uses the ION allocator.
 /dev/ion    u:object_r:ion_device:s0
+
+/vendor/bin/hw/android\.hardware\.health-service\.lilac    u:object_r:hal_health_default_exec:s0
