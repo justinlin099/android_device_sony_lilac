@@ -27,6 +27,9 @@ PRODUCT_DEVICE := lilac
 PRODUCT_BRAND := Sony
 PRODUCT_MODEL := G8441
 
+# Publish version-matched kernel type data for the DMA-BUF iterator.
+PRODUCT_PACKAGES += lilac_kernel_btf
+
 # Optionally trust the local test host in the recovery ramdisk only.
 ifeq ($(TARGET_PRODUCT):$(TARGET_BUILD_VARIANT):$(WITH_LILAC_RECOVERY_HOST_ADB),lineage_lilac:userdebug:true)
     lilac_recovery_adb_key := vendor/lilac-local/recovery-adb.pub
