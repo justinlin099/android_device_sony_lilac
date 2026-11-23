@@ -42,6 +42,10 @@ else
 endif
 
 ifeq ($(TARGET_PRODUCT),lineage_lilac)
+    # The BTF-enabled kernel extends past the default 16 MiB ramdisk
+    # offset. Keep the ramdisk beyond the arm64 kernel image reservation.
+    BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x04000000
+
     # Allow a temporary userdebug build to collect complete SELinux denials.
     ifneq ($(WITH_LILAC_PERMISSIVE_BRINGUP):$(TARGET_BUILD_VARIANT),true:userdebug)
         BOARD_KERNEL_CMDLINE := $(filter-out androidboot.selinux=permissive,$(BOARD_KERNEL_CMDLINE))
