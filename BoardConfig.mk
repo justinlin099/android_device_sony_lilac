@@ -80,3 +80,7 @@ endif
 
 # The 4.4 module signing tool needs OpenSSL CMS for SHA-512 signatures.
 TARGET_KERNEL_ADDITIONAL_FLAGS += KBUILD_SIGN_FILE_HOSTCC=/usr/bin/cc
+
+ifeq ($(TARGET_PRODUCT),lineage_lilac)
+    TARGET_KERNEL_ADDITIONAL_FLAGS += PAHOLE=$(abspath prebuilts/kernel-build-tools/linux-x86/bin/pahole)
+endif
